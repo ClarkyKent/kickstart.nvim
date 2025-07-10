@@ -22,7 +22,7 @@ vim.keymap.set({ 'v', 'x' }, 'p', '"_dP', opts)
 -- Do not copy on x
 vim.keymap.set({ 'v', 'x' }, 'x', '"_x', opts)
 vim.keymap.set('n', 'X', '"_D', opts)
-vim.keymap.set({ 'v', 'x' }, 'X', '"_d', opts, { desc = 'Delete without yanking' })
+vim.keymap.set({ 'v', 'x' }, 'X', '"_d', opts)
 
 -- Buffer navigation
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' })
