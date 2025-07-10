@@ -1,9 +1,11 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-
+local opts = { noremap = true, silent = true }
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<cmd>w<CR>', { desc = 'general save file' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>cq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
@@ -14,8 +16,13 @@ vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous search result (centered)' }
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half page down (centered)' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half page up (centered)' })
 
--- Delete without yanking
-vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete without yanking' })
+-- Visual overwrite paste
+vim.keymap.set({ 'v', 'x' }, 'p', '"_dP', opts)
+
+-- Do not copy on x
+vim.keymap.set({ 'v', 'x' }, 'x', '"_x', opts)
+vim.keymap.set('n', 'X', '"_D', opts)
+vim.keymap.set({ 'v', 'x' }, 'X', '"_d', opts, { desc = 'Delete without yanking' })
 
 -- Buffer navigation
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { desc = 'Next buffer' })
@@ -69,5 +76,4 @@ vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and reselect' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and reselect' })
 
 -- Quick file navigation
-vim.keymap.set('n', '<leader>e', ':Explore<CR>', { desc = 'Open file explorer' })
 vim.keymap.set('n', '<leader>ff', ':find ', { desc = 'Find file' })

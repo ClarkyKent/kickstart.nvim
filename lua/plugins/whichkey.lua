@@ -46,6 +46,8 @@ return {
     -- Document existing key chains
     spec = {
       { '<leader>s', group = '[S]plit' },
+      { '<leader>p', group = '[P]eak' },
+      { '<leader>c', group = '[C]ode' },
       { '<leader>u', group = '[U]ndoTree' },
       { '<leader>g', group = '[G]it' },
       { '<leader>f', group = '[F]ind' },

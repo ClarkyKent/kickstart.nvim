@@ -99,8 +99,8 @@ local textobjects = {
     border = 'none',
     floating_preview_opts = {},
     peek_definition_code = {
-      ['<leader>df'] = '@function.outer',
-      ['<leader>dF'] = '@class.outer',
+      ['<leader>pd'] = '@function.outer',
+      ['<leader>pD'] = '@class.outer',
     },
   },
 }
