@@ -241,22 +241,22 @@ return {
     vim.keymap.set("n", "<leader>fgh", fzf.git_stash, vim.tbl_extend("force", opts, { desc = "Git stash" }))
     
     -- Misc
-    vim.keymap.set("n", "<leader>fh", fzf.help_tags, vim.tbl_extend("force", opts, { desc = "Help tags" }))
-    vim.keymap.set("n", "<leader>fm", fzf.man_pages, vim.tbl_extend("force", opts, { desc = "Man pages" }))
-    vim.keymap.set("n", "<leader>fc", fzf.colorschemes, vim.tbl_extend("force", opts, { desc = "Colorschemes" }))
+    -- vim.keymap.set("n", "<leader>fh", fzf.help_tags, vim.tbl_extend("force", opts, { desc = "Help tags" }))
+    -- vim.keymap.set("n", "<leader>fm", fzf.man_pages, vim.tbl_extend("force", opts, { desc = "Man pages" }))
+    -- vim.keymap.set("n", "<leader>fc", fzf.colorschemes, vim.tbl_extend("force", opts, { desc = "Colorschemes" }))
     vim.keymap.set("n", "<leader>fk", fzf.keymaps, vim.tbl_extend("force", opts, { desc = "Keymaps" }))
     vim.keymap.set("n", "<leader>fq", fzf.quickfix, vim.tbl_extend("force", opts, { desc = "Quickfix list" }))
-    vim.keymap.set("n", "<leader>fl", fzf.loclist, vim.tbl_extend("force", opts, { desc = "Location list" }))
+    -- vim.keymap.set("n", "<leader>fl", fzf.loclist, vim.tbl_extend("force", opts, { desc = "Location list" }))
     vim.keymap.set("n", "<leader>fj", fzf.jumps, vim.tbl_extend("force", opts, { desc = "Jump list" }))
     vim.keymap.set("n", "<leader>ft", fzf.tags, vim.tbl_extend("force", opts, { desc = "Tags" }))
-    vim.keymap.set("n", "<leader>f:", fzf.command_history, vim.tbl_extend("force", opts, { desc = "Command history" }))
+    vim.keymap.set("n", "<leader>f;", fzf.command_history, vim.tbl_extend("force", opts, { desc = "Command history" }))
     vim.keymap.set("n", "<leader>f/", fzf.search_history, vim.tbl_extend("force", opts, { desc = "Search history" }))
     
     -- Resume last search
     vim.keymap.set("n", "<leader>fr", fzf.resume, vim.tbl_extend("force", opts, { desc = "Resume last search" }))
     
     -- Register search
-    vim.keymap.set("n", '<leader>f"', fzf.registers, vim.tbl_extend("force", opts, { desc = "Registers" }))
+    -- vim.keymap.set("n", '<leader>f"', fzf.registers, vim.tbl_extend("force", opts, { desc = "Registers" }))
     
     -- Spell suggestions
     vim.keymap.set("n", "<leader>fz", fzf.spell_suggest, vim.tbl_extend("force", opts, { desc = "Spell suggestions" }))
