@@ -6,45 +6,79 @@ return {
   },
   lazy = false,
   opts = {},
-
-  require('refactoring').setup({
-    prompt_func_return_type = {
-        go = false,
-        java = false,
-
-        cpp = false,
-        c = false,
-        h = false,
-        hpp = false,
-        cxx = false,
+  keys = {
+    -- Remaps for the refactoring operations currently offered by the plugin
+    {
+      '<leader>cre',
+      function()
+        require('refactoring').refactor 'Extract Function'
+      end,
+      desc = 'Extract function',
+      mode = 'v',
+      silent = true,
+      expr = false,
     },
-    prompt_func_param_type = {
-        go = false,
-        java = false,
-
-        cpp = false,
-        c = false,
-        h = false,
-        hpp = false,
-        cxx = false,
+    {
+      '<leader>crf',
+      function()
+        require('refactoring').refactor 'Extract Function To File'
+      end,
+      desc = 'Extract function to file',
+      mode = 'v',
+      silent = true,
+      expr = false,
     },
-    printf_statements = {},
-    print_var_statements = {},
-    show_success_message = false, -- shows a message with information about the refactor on success
-                                  -- i.e. [Refactor] Inlined 3 variable occurrences
-})
-
-vim.keymap.set("x", "<leader>re", ":Refactor extract ")
-vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
-
-vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
-
-vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-
-vim.keymap.set( "n", "<leader>rI", ":Refactor inline_func")
-
-vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
-vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
-
-
+    {
+      '<leader>crv',
+      function()
+        require('refactoring').refactor 'Extract Variable'
+      end,
+      desc = 'Extract variable',
+      mode = 'v',
+      silent = true,
+      expr = false,
+    },
+    {
+      '<leader>cri',
+      function()
+        require('refactoring').refactor 'Inline Variable'
+      end,
+      desc = 'Inline variable',
+      mode = 'v',
+      silent = true,
+      expr = false,
+    },
+    -- Extract block doesn't need visual mode
+    {
+      '<leader>crb',
+      function()
+        require('refactoring').refactor 'Extract Block'
+      end,
+      desc = 'Extract block',
+      mode = 'n',
+      silent = true,
+      expr = false,
+    },
+    {
+      '<leader>crbf',
+      function()
+        require('refactoring').refactor 'Extract Block To File'
+      end,
+      desc = 'Extract block to file',
+      mode = 'n',
+      silent = true,
+      expr = false,
+    },
+    -- Inline variable can also pick up the identifier currently under the cursor without visual mode
+    {
+      '<leader>cri',
+      function()
+        require('refactoring').refactor 'Inline Variable'
+      end,
+      desc = 'Inline variable',
+      mode = 'n',
+      silent = true,
+      expr = false,
+    },
+  },
 }

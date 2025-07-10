@@ -84,14 +84,14 @@ local textobjects = {
   swap = {
     enable = true,
     swap_next = {
-      ['<leader>ca'] = '@parameter.inner',
-      ['<leader>cf'] = '@function.outer',
-      ['<leader>cm'] = '@call.outer',
+      ['<leader>csa'] = '@parameter.inner',
+      ['<leader>csf'] = '@function.outer',
+      ['<leader>csm'] = '@call.outer',
     },
     swap_previous = {
-      ['<leader>cA'] = '@parameter.inner',
-      ['<leader>cF'] = '@function.outer',
-      ['<leader>cM'] = '@call.outer',
+      ['<leader>csA'] = '@parameter.inner',
+      ['<leader>csF'] = '@function.outer',
+      ['<leader>csM'] = '@call.outer',
     },
   },
   lsp_interop = {
