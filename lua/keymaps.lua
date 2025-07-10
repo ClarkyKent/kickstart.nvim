@@ -6,6 +6,7 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<cmd>w<CR>', { desc = 'general save file' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-q>', '<cmd>qa<CR>', { desc = 'Quit all' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>cq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
