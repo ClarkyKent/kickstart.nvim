@@ -185,11 +185,11 @@ return {
           navigation = {
             enable = true,
             keymaps = {
-              goto_definition = '<leader>rd',
-              list_definitions = '<leader>rl',
-              list_definitions_toc = '<leader>rh',
-              goto_next_usage = '<leader>rj',
-              goto_previous_usage = '<leader>rk',
+              goto_definition = '<leader>jd',
+              list_definitions = '<leader>jl',
+              list_definitions_toc = '<leader>jh',
+              goto_next_usage = '<leader>jj',
+              goto_previous_usage = '<leader>jk',
             },
           },
         },

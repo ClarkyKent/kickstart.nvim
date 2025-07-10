@@ -51,6 +51,7 @@ return {
       { '<leader>u', group = '[U]ndoTree' },
       { '<leader>g', group = '[G]it' },
       { '<leader>f', group = '[F]ind' },
+      { '<leader>r', group = '[R]efactor' },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = '[H]arpoon func' },
     },
