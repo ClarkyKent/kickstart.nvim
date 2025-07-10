@@ -19,24 +19,49 @@ return {
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_lsp_filetypes = { c = true, cpp = true }
+      -- Override the default timeout_ms value for specific languages
+      local default_timeout = 500
+      local timeout_override = { php = 5000 }
+      -- Disable formatting on save completely for certain languages
+      local disable_filetypes = {}
+
+      local lsp_format_opt
+      if disable_lsp_filetypes[vim.bo[bufnr].filetype] then
+        lsp_format_opt = "never"
+      else
+        lsp_format_opt = "fallback"
+      end
+
+      local timeout = default_timeout
+      if timeout_override[vim.bo[bufnr].filetype] then
+        timeout = timeout_override[vim.bo[bufnr].filetype]
+      end
+
       if disable_filetypes[vim.bo[bufnr].filetype] then
-        return nil
+        return {
+          formatters = {},
+          lsp_format = "never",
+        }
       else
         return {
-          timeout_ms = 500,
-          lsp_format = 'fallback',
+          timeout_ms = timeout,
+          lsp_format = lsp_format_opt,
         }
       end
     end,
     formatters_by_ft = {
-      lua = { 'stylua' },
-      c = { 'clang-format' },
+      lua = { "stylua" },
       -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
+      python = { "ruff", "black", "isort" },
       --
       -- You can use 'stop_after_first' to run the first available formatter from the list
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      json = { "prettierd", "prettier", stop_after_first = true },
+      yaml = { "prettierd" },
+      cpp = { "clang-format" },
+      c = { "clang-format" },
     },
   },
 }
