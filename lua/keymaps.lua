@@ -19,6 +19,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half page up (centered)' })
 
 -- Visual overwrite paste
 vim.keymap.set({ 'v', 'x' }, 'p', '"_dP', opts)
+vim.keymap.set('n', 'p', '+p', opts)
 
 -- Do not copy on x
 vim.keymap.set({ 'v', 'x' }, 'x', '"_x', opts)
